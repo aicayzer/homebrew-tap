@@ -6,13 +6,13 @@ class Runpool < Formula
   license "MIT"
   head "https://github.com/aicayzer/runpool.git", branch: "main"
 
-  # launchd, sysctl, ~/Library paths and the osx-arm64 runner build. Linux and
-  # Windows are already well served by existing autoscalers.
-  depends_on :macos
-
   # The GitHub CLI does every API call and supplies authentication, so there is
   # no token handling in runpool itself.
   depends_on "gh"
+
+  # launchd, sysctl, ~/Library paths and the osx-arm64 runner build. Linux and
+  # Windows are already well served by existing autoscalers.
+  depends_on :macos
 
   def install
     # The executable resolves its own location, following symlinks, to find lib/
