@@ -1,8 +1,8 @@
 class Runpool < Formula
   desc "On-demand self-hosted GitHub Actions runner pools for macOS"
   homepage "https://github.com/aicayzer/runpool"
-  url "https://github.com/aicayzer/runpool/archive/refs/tags/v0.6.1.tar.gz"
-  sha256 "4f253d18a7d268d47b268bf5854ca2f60ea25344f6ac46de6c75b8ed9cc8d9a5"
+  url "https://github.com/aicayzer/runpool/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "bf9eab9783d313246c02c0d5e594dfe9416605bb2937ae0c221f1b7bf7645a36"
   license "MIT"
   head "https://github.com/aicayzer/runpool.git", branch: "main"
 
@@ -19,7 +19,8 @@ class Runpool < Formula
     # next to itself. Keeping bin/ and lib/ together under libexec preserves
     # that; installing the script straight into bin would put lib/ one level
     # too high.
-    libexec.install "bin", "lib", "contrib", "runpool.conf.example"
+    libexec.install "bin", "lib", "contrib",
+                    "runpool.conf.example", "runpool.pools.example"
     bin.install_symlink libexec/"bin/runpool"
     doc.install "README.md"
   end
@@ -31,6 +32,10 @@ class Runpool < Formula
 
       Start from the shipped example:
         cp #{opt_libexec}/runpool.conf.example ~/.config/runpool/config
+
+      To declare a machine's pools in a file rather than one by one:
+        cp #{opt_libexec}/runpool.pools.example ~/.config/runpool/pools
+        runpool apply --dry-run
 
       Then authenticate the GitHub CLI, register a pool, and install the
       background agents that make pools on-demand:
