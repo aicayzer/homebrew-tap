@@ -1,8 +1,8 @@
 class Runpool < Formula
   desc "On-demand self-hosted GitHub Actions runner pools for macOS"
   homepage "https://github.com/aicayzer/runpool"
-  url "https://github.com/aicayzer/runpool/archive/refs/tags/v0.7.1.tar.gz"
-  sha256 "c0700fd67d1933958dc001b99dd041fb5986587566e0f07605489511d58b8ca3"
+  url "https://github.com/aicayzer/runpool/archive/refs/tags/v0.8.0.tar.gz"
+  sha256 "bb33c710fe821ff764c2ddfe179bce41d747c0daa2bf61ce43fcc2a776ddcd3f"
   license "MIT"
   head "https://github.com/aicayzer/runpool.git", branch: "main"
 
@@ -52,7 +52,11 @@ class Runpool < Formula
     assert_match "runpool", shell_output("#{bin}/runpool --help")
     # With no pools registered, status must still succeed and emit valid JSON
     # rather than failing on an empty install.
-    output = shell_output("RUNPOOL_BASE=#{testpath}/data #{bin}/runpool status --json")
+    output = shell_output(
+      "RUNPOOL_BASE=#{testpath}/data RUNPOOL_CACHE_DIR=#{testpath}/cache " \
+      "RUNPOOL_LOG_DIR=#{testpath}/logs RUNPOOL_CONFIG=/dev/null " \
+      "RUNPOOL_POOLS_FILE=#{testpath}/pools #{bin}/runpool status --json",
+    )
     assert_match "\"pools\":[]", output
   end
 end
