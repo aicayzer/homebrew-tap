@@ -1,8 +1,8 @@
 class Sessionmail < Formula
   desc "Local, paired mailbox for AI coding agents that can't otherwise reach each other"
   homepage "https://github.com/aicayzer/sessionmail"
-  url "https://registry.npmjs.org/sessionmail/-/sessionmail-0.2.0.tgz"
-  sha256 "d8ff00dfdb977e50d05c68b378c63a2737961a787548d13f185784d19d17e248"
+  url "https://registry.npmjs.org/sessionmail/-/sessionmail-0.2.1.tgz"
+  sha256 "d364bd5d5b7650b9a05d4d85ca15f5fa0d2f31e0ad50fb755012545bd43f65c8"
   license "MIT"
   head "https://github.com/aicayzer/sessionmail.git", branch: "main"
 
@@ -14,6 +14,6 @@ class Sessionmail < Formula
   end
 
   test do
-    assert_match "0.2.0", shell_output("#{bin}/sessionmail --version")
+    assert_match "0.2.1", shell_output("#{bin}/sessionmail --version")
   end
 end
