@@ -1,8 +1,8 @@
 class Runpool < Formula
   desc "On-demand self-hosted GitHub Actions runner pools for macOS"
   homepage "https://github.com/aicayzer/runpool"
-  url "https://github.com/aicayzer/runpool/releases/download/v0.10.4/runpool-0.10.4.tar.gz"
-  sha256 "8ece96adf267edd89f86f07185493427cdce8db1ee2f117e88bee507335a2d12"
+  url "https://github.com/aicayzer/runpool/releases/download/v0.11.0/runpool-0.11.0.tar.gz"
+  sha256 "466c49ab6406d82288bedfe35e7b34174156674d3c668e3627189a0a96ee0201"
   license "MIT"
   head "https://github.com/aicayzer/runpool.git", branch: "main"
 
