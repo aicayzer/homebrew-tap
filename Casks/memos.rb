@@ -1,6 +1,6 @@
 cask "memos" do
-  version "0.1.2"
-  sha256 "631a5ffaa31c4bb7d86ea205e8554817eeb111a56ac4a773f97242666cdbcbc9"
+  version "0.2.0"
+  sha256 "e7f2e15a58d79cb51e1dc02e13ddc7df007829611508b4042d67a4953c4c984a"
 
   url "https://github.com/aicayzer/memos/releases/download/v#{version}/Memos-#{version}.dmg"
   name "Memos"
